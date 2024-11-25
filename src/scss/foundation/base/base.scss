@@ -104,13 +104,12 @@ code {
 }
 
 table {
+  display: block;
+  overflow-x: auto;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1.6rem;
   margin: 0 auto;
-  $addition: 28%;
-  width: 100% + $addition;
-  margin-left: -$addition/2;
   margin-top: 2em;
   margin-bottom: 2em;
 }
