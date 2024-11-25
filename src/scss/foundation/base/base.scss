@@ -12,7 +12,7 @@ html {
 body {
   color: color.$color-text;
   font-size: 1rem;
-  font-family: fontFamily.$SanFrancisco;
+  font-family: fontFamily.$OpenSans;
   line-height: 1.57;
 }
 
@@ -107,6 +107,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1.6rem;
+  margin: 0 auto;
+  $addition: 28%;
+  width: 100% + $addition;
+  margin-left: -$addition/2;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+p > code {
+  padding: 4px;
+  color: #222;
+  background-color: #EEE;
 }
 
 th,
@@ -125,11 +137,67 @@ del {
 }
 
 blockquote {
-  margin: 0;
+  margin: 24px 0;
   padding: 8px 12px;
   border-left: 3px solid #ccc;
   & * {
     margin: 0;
+  }
+
+  p.alert-heading {
+    font-weight: bold;
+    margin-bottom: 0.6em;
+
+    .alert-icon {
+      margin-right: 4px;
+      width: 16px;
+      text-align: center;
+    }
+
+    span.alert-title {
+      font-weight: bold;
+    }
+  }
+}
+
+$note-color: #00a3d0;
+$tip-color: #309600;
+$important-color: #773cf6;
+$caution-color: #f63c3c;
+$warning-color: #f79000;
+
+blockquote.alert-note {
+  border-left: 3px solid #00a3d0;
+  p.alert-heading {
+    color: #00a3d0;
+  }
+}
+
+blockquote.alert-tip {
+  border-left: 3px solid  $tip-color;
+  p.alert-heading {
+    color: $tip-color;
+  }
+}
+
+blockquote.alert-important {
+  border-left: 3px solid $important-color;
+  p.alert-heading {
+    color: $important-color;
+  }
+}
+
+blockquote.alert-warning {
+  border-left: 3px solid $warning-color;
+  p.alert-heading {
+    color: $warning-color;
+  }
+}
+
+blockquote.alert-caution {
+  border-left: 3px solid $caution-color;
+  p.alert-heading {
+    color: $caution-color;
   }
 }
 
