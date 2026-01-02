@@ -3,16 +3,16 @@
 @use '../../foundation/variable/font-family.scss' as fontFamily;
 
 .p-menu {
-  margin-top: 24px;
+  margin-top: 0;
   font-family: fontFamily.$font-primary;
 
   &__lists {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     margin: 0;
     padding: 0;
-    gap: 8px 16px;
+    gap: 4px;
   }
 
   &__listitem {
@@ -21,23 +21,23 @@
 
     a {
       display: inline-block;
-      padding: 8px 12px;
-      font-size: 1.4rem;
-      font-weight: 500;
+      padding: 6px 12px;
+      font-size: 1.3rem; // 13px Apple-style
+      font-weight: 400;
       color: color.$color-text-secondary;
       text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.2s ease;
+      border-radius: 6px;
+      transition: color 0.2s ease;
 
       &:hover {
         color: color.$color-text;
-        background-color: color.$color-bg-secondary;
+        background-color: transparent;
       }
     }
 
     &.active a {
-      color: color.$color-accent;
-      background-color: rgba(color.$color-accent, 0.1);
+      color: color.$color-text;
+      background-color: transparent;
     }
 
     ul {

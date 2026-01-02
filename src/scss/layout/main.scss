@@ -1,10 +1,26 @@
 @use '../foundation/variable/color.scss' as color;
+@use '../foundation/variable/breakpoint.scss' as breakpoint;
 
 .l-main {
   width: 100%;
-  max-width: 680px; // Narrow content for 60-75 characters per line
-  margin: 48px auto 0;
-  padding: 0 24px; // More padding on mobile (at least 24px)
+  max-width: 720px; // Apple-style optimal reading width
+  margin: 0 auto;
+  padding: 48px 24px; // Consistent padding
   padding-left: max(24px, env(safe-area-inset-left));
   padding-right: max(24px, env(safe-area-inset-right));
+
+  @include breakpoint.mq-up(lg) {
+    max-width: none;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
+    align-items: start;
+  }
+}
+
+// Article container within main grid
+.l-article-wrapper {
+  @include breakpoint.mq-up(lg) {
+    max-width: 680px;
+  }
 }

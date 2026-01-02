@@ -1,4 +1,5 @@
 {{ partial "header.html" . }}
+<div class="l-article-wrapper">
 <article class="p-article">
   <header>
     <h1>{{ .Title }}</h1>
@@ -27,10 +28,6 @@
   {{ with .Params.thumbnail }}
     <img src="{{ . }}" alt="thumbnail" class="p-article__thumbnail">
   {{ end }}
-  <aside class="hidden lg:block tableOfContentContainer" id="tableOfContentContainer">
-    <h3>Table of contents</h3>
-    {{ .TableOfContents }}
-  </aside>
   <section id="js-article" class="p-article__body">
     {{ .Content }}
   </section>
@@ -78,4 +75,9 @@
     {{ partial "siteinfo.html" . }}
   </footer>
 </article>
+</div>
+<aside class="tableOfContentContainer" id="tableOfContentContainer">
+  <h3>Table of contents</h3>
+  {{ .TableOfContents }}
+</aside>
 {{ partial "footer.html" . }}

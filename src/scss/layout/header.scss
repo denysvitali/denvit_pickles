@@ -2,9 +2,11 @@
 @use '../foundation/variable/font-family.scss' as fontFamily;
 
 .l-header {
-  display: block;
-  padding: 16px 0;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 52px; // Apple-style fixed height
   position: sticky;
   top: 0;
   z-index: 100;
@@ -13,17 +15,16 @@
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid color.$color-divider;
-  transition: background-color 0.3s ease;
 }
 
-// Site title as logomark - monospace, smaller, centered
+// Site title as logomark - monospace, smaller, left-aligned
 .c-title.p-title {
   font-family: fontFamily.$SF-Mono;
-  font-size: 1.8rem; // ~20px equivalent
+  font-size: 1.4rem; // 14px Apple-style
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin: 0;
-  padding: 8px 0;
+  padding: 0;
 
   a {
     color: color.$color-text;
@@ -37,9 +38,62 @@
 }
 
 .p-subtitle {
-  font-family: fontFamily.$font-primary;
-  font-size: 1.2rem;
+  display: none; // Hide subtitle for cleaner look
+}
+
+// Navigation wrapper - inline with logo
+.l-nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Mobile menu toggle - hide on desktop
+.mobile-menu-toggle {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    span {
+      display: block;
+      width: 18px;
+      height: 1px;
+      background: color.$color-text;
+      margin: 3px 0;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+// Search toggle - subtle icon
+.search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   color: color.$color-text-secondary;
-  margin: 4px 0 0;
-  font-weight: 400;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: color.$color-text;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 }

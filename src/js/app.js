@@ -26,4 +26,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   })
+
+  // Table of Contents mobile toggle
+  const tocContainer = document.getElementById('tableOfContentContainer')
+  const tocHeader = tocContainer?.querySelector('h3')
+
+  if (tocHeader && window.matchMedia('(max-width: 1023px)').matches) {
+    const tocList = tocContainer.querySelector('ul')
+
+    // Start collapsed
+    tocList.style.display = 'none'
+
+    tocHeader.addEventListener('click', () => {
+      const isHidden = tocList.style.display === 'none'
+      tocList.style.display = isHidden ? 'block' : 'none'
+      tocHeader.classList.toggle('expanded', isHidden)
+    })
+
+    // Add expanded state styling
+    tocHeader.style.userSelect = 'none'
+  }
 })
