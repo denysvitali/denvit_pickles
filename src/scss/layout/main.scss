@@ -1,6 +1,10 @@
+@use '../foundation/variable/color.scss' as color;
+
 .l-main {
-  width: 96%;
-  max-width: 720px;
-  margin: 40px auto 0;
-  padding: 10px;
+  width: 100%;
+  max-width: 680px; // Narrow content for 60-75 characters per line
+  margin: 48px auto 0;
+  padding: 0 24px; // More padding on mobile (at least 24px)
+  padding-left: max(24px, env(safe-area-inset-left));
+  padding-right: max(24px, env(safe-area-inset-right));
 }

@@ -1,56 +1,64 @@
+@use '../../foundation/variable/color.scss' as color;
+@use '../../foundation/variable/font-family.scss' as fontFamily;
+
 .c-pagination {
-  font-size: 1.6rem;
+  font-family: fontFamily.$font-primary;
+  font-size: 1.4rem;
+  margin: 48px 0;
+
+  // Hide pagination if only one page
+  &:empty {
+    display: none;
+  }
+
   a {
-    display: inline-block;
-    padding: 8px 16px;
-    transition: 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    color: color.$color-text-secondary;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+
     &:hover {
-      background: #fafafa;
+      color: color.$color-text;
+      background-color: color.$color-bg-secondary;
     }
   }
+
   &__ctrl {
     display: flex;
     justify-content: space-between;
   }
+
   &__newer,
   &__older {
     flex: 1;
   }
+
   &__newer {
     a {
       &::before {
-        content: '';
-        display: inline-block;
-        position: relative;
-        top: -1px;
-        width: 4px;
-        height: 4px;
-        margin-right: 4px;
-        border: solid currentColor;
-        border-width: 2px 0 0 2px;
-        transform: rotate(-45deg);
+        content: '←';
+        font-size: 1.2rem;
       }
     }
   }
+
   &__older {
     text-align: right;
+
     a {
       &::after {
-        content: '';
-        display: inline-block;
-        position: relative;
-        top: -1px;
-        width: 4px;
-        height: 4px;
-        margin-left: 4px;
-        border: solid currentColor;
-        border-width: 2px 2px 0 0;
-        transform: rotate(45deg);
+        content: '→';
+        font-size: 1.2rem;
       }
     }
   }
+
   &__count {
-    display: block;
-    text-align: center;
+    display: none; // Hide "Page 1 of 1" - computer debris
   }
 }

@@ -1,43 +1,53 @@
 @use "../../foundation/variable/breakpoint.scss" as breakpoint;
 @use '../../foundation/variable/color.scss' as color;
+@use '../../foundation/variable/font-family.scss' as fontFamily;
 
 .p-menu {
-  margin-top: 40px;
+  margin-top: 24px;
+  font-family: fontFamily.$font-primary;
+
   &__lists {
-    display: block;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 0;
     padding: 0;
-    @include breakpoint.mq-up(sm) {
-      display: flex;
-    }
+    gap: 8px 16px;
   }
+
   &__listitem {
-    margin: 12px 0 0 0;
+    margin: 0;
     list-style: none;
-    @include breakpoint.mq-up(sm) {
-      margin: 24px 24px 0 0;
-    }
+
     a {
-      padding-bottom: 4px;
+      display: inline-block;
+      padding: 8px 12px;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: color.$color-text-secondary;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+
       &:hover {
-        border-bottom: 1px solid currentColor;
+        color: color.$color-text;
+        background-color: color.$color-bg-secondary;
       }
     }
+
+    &.active a {
+      color: color.$color-accent;
+      background-color: rgba(color.$color-accent, 0.1);
+    }
+
     ul {
-      padding-left: 12px;
-      li {
-        margin: 4px 0 0;
-        &::before {
-          content: '-';
-          margin-right: 4px;
-        }
-      }
+      display: none; // Keep submenus hidden for simplicity
     }
   }
+
   &__parent {
     span {
-      color: color.$link-color;
+      color: color.$color-accent;
     }
   }
 }

@@ -7,13 +7,36 @@
 
 html {
   font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   color: color.$color-text;
   font-size: 1rem;
-  font-family: fontFamily.$OpenSans;
-  line-height: 1.57;
+  font-family: fontFamily.$font-primary;
+  line-height: 1.65; // Increased leading for readability
+  background-color: color.$color-bg;
+  letter-spacing: -0.01em;
+}
+
+// Custom scrollbar - thin and subtle
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: color.$color-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color.$color-bg-tertiary;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 h1,
@@ -22,43 +45,53 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 300;
-  font-family: fontFamily.$OpenSans;
+  font-weight: 600;
+  font-family: fontFamily.$font-primary;
+  line-height: 1.25;
+  letter-spacing: -0.02em; // Tight tracking for headlines
+  color: color.$color-text;
 }
 
 h1 {
   font-size: 3.2rem;
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 2.8rem;
+  font-size: 2.4rem;
+  font-weight: 600;
 }
 
 h3 {
-  font-size: 2.4rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 h5 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 h6 {
-  font-size: 1.6rem;
+  font-size: 1.25rem;
 }
 
 p {
   font-size: 1.6rem;
+  line-height: 1.7; // Relaxed leading for body text
+  margin-bottom: 1.5em;
 }
 
 a {
-  color: color.$link-color;
+  color: color.$color-link;
   text-decoration: none;
+  transition: color 0.2s ease;
+
   &:hover {
-    color: color.$link-hover;
+    color: color.$color-link-hover;
   }
 }
 
@@ -76,11 +109,13 @@ ol {
 
 li {
   font-size: 1.6rem;
+  line-height: 1.65;
 }
 
 dt {
   margin-top: 16px;
   font-size: 1.6rem;
+  font-weight: 600;
 }
 
 dd {
@@ -90,17 +125,19 @@ dd {
 
 pre {
   display: block;
-  padding: 12px;
-  border-radius: 3px;
-  background-color: #f8f8f8;
-  font-size: 1.2rem;
+  padding: 16px 20px;
+  border-radius: 12px; // Squircle radius
+  background-color: color.$color-bg-secondary;
+  font-size: 1.3rem;
   word-wrap: break-word;
   overflow: auto;
+  font-family: fontFamily.$SF-Mono;
 }
 
 code {
-  line-height: 1.8;
+  line-height: 1.7;
   font-size: 1.4rem;
+  font-family: fontFamily.$SF-Mono;
 }
 
 table {
@@ -109,42 +146,47 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1.6rem;
-  margin: 0 auto;
+  margin: 2em auto;
   margin-top: 2em;
   margin-bottom: 2em;
 }
 
 p > code {
-  padding: 4px;
-  color: #222;
-  background-color: #EEE;
+  padding: 4px 8px;
+  color: color.$color-text;
+  background-color: color.$color-bg-secondary;
+  border-radius: 6px;
+  font-size: 1.4rem;
 }
 
 th,
 td {
-  padding: 8px;
-  border: 1px solid #eee;
+  padding: 12px 16px;
+  border: 1px solid color.$color-border;
 }
 
 th {
-  background-color: #fafafa;
-  font-weight: normal;
+  background-color: color.$color-bg-secondary;
+  font-weight: 600;
 }
 
 del {
-  color: #999;
+  color: color.$color-text-tertiary;
 }
 
 blockquote {
   margin: 24px 0;
-  padding: 8px 12px;
-  border-left: 3px solid #ccc;
+  padding: 16px 20px;
+  border-left: 3px solid color.$color-accent;
+  background-color: color.$color-bg-secondary;
+  border-radius: 0 8px 8px 0;
+
   & * {
     margin: 0;
   }
 
   p.alert-heading {
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 0.6em;
 
     .alert-icon {
@@ -154,7 +196,7 @@ blockquote {
     }
 
     span.alert-title {
-      font-weight: bold;
+      font-weight: 600;
     }
   }
 }
@@ -166,35 +208,35 @@ $caution-color: #f63c3c;
 $warning-color: #f79000;
 
 blockquote.alert-note {
-  border-left: 3px solid #00a3d0;
+  border-left-color: $note-color;
   p.alert-heading {
-    color: #00a3d0;
+    color: $note-color;
   }
 }
 
 blockquote.alert-tip {
-  border-left: 3px solid  $tip-color;
+  border-left-color: $tip-color;
   p.alert-heading {
     color: $tip-color;
   }
 }
 
 blockquote.alert-important {
-  border-left: 3px solid $important-color;
+  border-left-color: $important-color;
   p.alert-heading {
     color: $important-color;
   }
 }
 
 blockquote.alert-warning {
-  border-left: 3px solid $warning-color;
+  border-left-color: $warning-color;
   p.alert-heading {
     color: $warning-color;
   }
 }
 
 blockquote.alert-caution {
-  border-left: 3px solid $caution-color;
+  border-left-color: $caution-color;
   p.alert-heading {
     color: $caution-color;
   }
@@ -203,4 +245,16 @@ blockquote.alert-caution {
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 12px; // Squircle
+}
+
+// Interaction physics - scale on active
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
+// Selection color
+::selection {
+  background-color: color.$color-accent;
+  color: white;
 }

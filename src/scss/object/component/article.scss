@@ -1,40 +1,86 @@
 @use '../../foundation/variable/color.scss' as color;
+@use '../../foundation/variable/font-family.scss' as fontFamily;
 
 .c-article {
+  // Article card - entire card is clickable
+  &.p-list-article {
+    margin-top: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid color.$color-divider;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    // Interaction physics - scale on active
+    transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
   &__title {
-    font-size: 2.4rem;
-    & a {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+
+    a {
       color: color.$color-text;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
       &:hover {
-        color: color.$link-hover;
+        color: color.$color-accent;
       }
     }
   }
+
+  // Simplified metadata - minimalist style
   &__meta {
-    font-size: 1.6rem;
-    line-height: 1;
+    font-family: fontFamily.$font-primary;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: color.$color-text-secondary;
+    margin-bottom: 16px;
+    font-weight: 400;
+
+    // Use separator dot instead of pipe
+    .meta-item {
+      display: inline-block;
+
+      &::after {
+        content: "•";
+        margin: 0 8px;
+        color: color.$color-text-tertiary;
+      }
+
+      &:last-child::after {
+        display: none;
+      }
+    }
+
+    // Hide the pipe separator
+    .separator {
+      display: none;
+    }
   }
+
   &__summary {
-    font-size: 1.4rem;
-    color: #999;
-    line-height: 1.57;
+    font-size: 1.5rem;
+    color: color.$color-text-secondary;
+    line-height: 1.6;
+    margin-bottom: 16px;
+
     & p {
       margin: 0;
     }
   }
+
+  // Remove the "Read more" button - entire card is clickable
   &__btn {
-    display: inline-block;
-    padding-bottom: 4px;
-    font-size: 1.6rem;
-    &::after {
-      content: '';
-      display: inline-block;
-      margin-left: 3px;
-      width: 5px;
-      height: 5px;
-      border: solid currentColor;
-      border-width: 1px 1px 0 0;
-      transform: rotate(45deg);
-    }
+    display: none;
   }
 }

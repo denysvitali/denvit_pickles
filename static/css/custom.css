@@ -1,91 +1,439 @@
-/* Search bar styling */
-#search {
-  margin: 20px auto;
+/* ==========================================================================
+   Apple-Level Design System for blog.denv.it
+   ========================================================================== */
+
+/* Import Inter font - Neo-Grotesque typeface */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   Search Bar Styling (Hidden by default, toggled with icon)
+   ========================================================================== */
+.search-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 100%;
+  width: 100%;
   max-width: 400px;
+  padding: 16px 24px;
+  z-index: 101;
+}
+
+.search-container:not([hidden]) {
+  display: block;
+}
+
+#search {
+  margin: 0 auto;
   width: 100%;
 }
 
 #search .pagefind-ui {
-  --pagefind-ui-scale: 0.8;
-  --pagefind-ui-primary: #337ab7;
-  --pagefind-ui-text: #555;
-  --pagefind-ui-background: #fff;
-  --pagefind-ui-border: #ddd;
-  --pagefind-ui-tag: #f0f0f0;
+  --pagefind-ui-scale: 0.85;
+  --pagefind-ui-primary: #0a84ff;
+  --pagefind-ui-text: #f5f5f7;
+  --pagefind-ui-background: rgba(44, 44, 46, 0.95);
+  --pagefind-ui-border: rgba(255, 255, 255, 0.1);
+  --pagefind-ui-tag: rgba(255, 255, 255, 0.1);
   --pagefind-ui-border-width: 1px;
-  --pagefind-ui-border-radius: 4px;
-  --pagefind-ui-image-border-radius: 4px;
+  --pagefind-ui-border-radius: 12px;
+  --pagefind-ui-image-border-radius: 8px;
   --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: "Open Sans", sans-serif;
+  --pagefind-ui-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #search .pagefind-ui__search-input {
-  min-height: 38px;
-  font-size: 1.4rem;
+  min-height: 44px;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f5f5f7;
+  padding: 12px 16px;
+}
+
+#search .pagefind-ui__search-input::placeholder {
+  color: #8e8e93;
+}
+
+#search .pagefind-ui__search-input:focus {
+  outline: none;
+  border-color: #0a84ff;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.2);
 }
 
 #search .pagefind-ui__result {
   text-align: left;
+  color: #f5f5f7;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Mobile menu toggle button */
+#search .pagefind-ui__result-title {
+  color: #f5f5f7;
+  font-weight: 600;
+}
+
+#search .pagefind-ui__result-excerpt {
+  color: #8e8e93;
+  font-size: 1.3rem;
+}
+
+/* ==========================================================================
+   Search Toggle Button (Minimal icon in header)
+   ========================================================================== */
+.search-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  color: #8e8e93;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  margin-left: 8px;
+}
+
+.search-toggle:hover {
+  color: #f5f5f7;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================================================
+   Mobile Menu Toggle Button
+   ========================================================================== */
 .mobile-menu-toggle {
   display: none;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 100;
+  z-index: 1000;
+  color: #8e8e93;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: #f5f5f7;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu-toggle span {
   display: block;
-  width: 24px;
+  width: 18px;
   height: 2px;
-  background-color: #333;
-  transition: 0.2s;
+  background-color: currentColor;
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 0 auto 4px;
 }
 
-.mobile-menu-toggle span:nth-child(1) {
-  margin-bottom: 6px;
+.mobile-menu-toggle span:last-child {
+  margin-bottom: 0;
 }
 
-.mobile-menu-toggle span:nth-child(2) {
-  margin-bottom: 6px;
+/* Hamburger to X animation */
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
 }
 
-/* Show mobile toggle on small screens */
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   Navigation Wrapper
+   ========================================================================== */
+.l-nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 44px;
+}
+
+/* ==========================================================================
+   Full-Screen Mobile Menu Overlay
+   ========================================================================== */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(18, 18, 18, 0.98);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+/* Menu header with logo and close button */
+.mobile-menu-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-menu-logo {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Close button (reuses hamburger styles) */
+.mobile-menu-close {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  color: #ffffff;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-close:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-close span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: currentColor;
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 0 auto;
+}
+
+.mobile-menu-close span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu-close span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-close span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Menu content - centered links */
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 80px 20px 40px;
+  width: 100%;
+}
+
+.mobile-menu-content .p-menu__lists {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-menu-content .p-menu__listitem {
+  margin: 0;
+  list-style: none;
+}
+
+.mobile-menu-content .p-menu__listitem a {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  padding: 8px 24px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-content .p-menu__listitem a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Search bar in menu */
+.mobile-menu-search {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   Desktop Navigation (unchanged)
+   ========================================================================== */
+.l-nav {
+  margin-top: 40px;
+}
+
+.l-nav .p-menu__lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.l-nav .p-menu__listitem a {
+  font-size: 1.4rem;
+  color: #8e8e93;
+  padding: 4px 0;
+}
+
+.l-nav .p-menu__listitem a:hover {
+  color: #f5f5f7;
+}
+
+/* ==========================================================================
+   Mobile Styles (Small screens)
+   ========================================================================== */
 @media screen and (max-width: 639px) {
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .l-nav-wrapper {
-    position: relative;
     width: 100%;
-    padding-right: 50px;
+    padding-right: 44px;
+    justify-content: center;
   }
 
-  #search {
-    margin: 10px auto;
-  }
-
+  /* Hide desktop nav on mobile */
   .l-nav {
-    display: none;
+    display: none !important;
   }
 
-  .l-nav-wrapper.mobile-open .l-nav {
-    display: block;
+  /* Search toggle styling */
+  .search-toggle {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .search-container {
+    padding: 16px;
+  }
+
+  #search .pagefind-ui {
+    --pagefind-ui-scale: 0.9;
   }
 }
 
-/* Hide empty icon button that Pagefind creates */
+/* ==========================================================================
+   Utility: Hide empty icon button that Pagefind creates
+   ========================================================================== */
 .pagefind-ui__search-icon {
   display: none !important;
+}
+
+/* ==========================================================================
+   Interaction Physics - Scale on Active (for entire article cards)
+   ========================================================================== */
+.c-article.p-list-article {
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.c-article.p-list-article:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Hero Image Styling for Article Pages
+   ========================================================================== */
+.p-article__hero {
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  margin-top: -24px;
+  margin-bottom: 32px;
+  border-radius: 0;
+}
+
+@media (min-width: 680px) {
+  .p-article__hero {
+    width: 100%;
+    margin-left: 0;
+    margin-top: -48px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+  }
+}
+
+.p-article__hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Skip Link (Accessibility)
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0a84ff;
+  color: white;
+  padding: 8px 16px;
+  z-index: 1000;
+  transition: top 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+  top: 0;
 }

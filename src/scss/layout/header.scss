@@ -1,5 +1,45 @@
+@use '../foundation/variable/color.scss' as color;
+@use '../foundation/variable/font-family.scss' as fontFamily;
+
 .l-header {
   display: block;
-  padding: 20px 0;
+  padding: 16px 0;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  // Frosted glass effect
+  background-color: rgba(color.$color-bg, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid color.$color-divider;
+  transition: background-color 0.3s ease;
+}
+
+// Site title as logomark - monospace, smaller, centered
+.c-title.p-title {
+  font-family: fontFamily.$SF-Mono;
+  font-size: 1.8rem; // ~20px equivalent
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 8px 0;
+
+  a {
+    color: color.$color-text;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: color.$color-accent;
+    }
+  }
+}
+
+.p-subtitle {
+  font-family: fontFamily.$font-primary;
+  font-size: 1.2rem;
+  color: color.$color-text-secondary;
+  margin: 4px 0 0;
+  font-weight: 400;
 }

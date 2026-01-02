@@ -1,4 +1,9 @@
+@use '../../foundation/variable/color.scss' as color;
+@use '../../foundation/variable/font-family.scss' as fontFamily;
+
 .c-meta {
   display: block;
-  font-size: 1.6rem;
+  font-family: fontFamily.$font-primary;
+  font-size: 1.4rem;
+  color: color.$color-text-secondary;
 }
