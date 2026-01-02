@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Table of Contents mobile toggle
   const tocContainer = document.getElementById('tableOfContentContainer')
-  const tocHeader = tocContainer?.querySelector('h3')
+  const tocHeader = tocContainer ? tocContainer.querySelector('h3') : null
 
   if (tocHeader && window.matchMedia('(max-width: 1023px)').matches) {
     const tocList = tocContainer.querySelector('ul')
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start collapsed
     tocList.style.display = 'none'
 
-    tocHeader.addEventListener('click', () => {
+    tocHeader.addEventListener('click', function () {
       const isHidden = tocList.style.display === 'none'
       tocList.style.display = isHidden ? 'block' : 'none'
       tocHeader.classList.toggle('expanded', isHidden)
