@@ -1,0 +1,219 @@
+/* Light Mode Color Overrides */
+/* These override the hardcoded dark mode colors when prefers-color-scheme is light */
+
+@media (prefers-color-scheme: light) {
+  /* Base styles */
+  body {
+    background-color: #f5f5f7 !important;
+    color: #1c1c1e !important;
+  }
+
+  h1, h2, h3, h4, h5, h6,
+  .c-article__title a,
+  .p-title__link,
+  .p-subtitle,
+  .p-tag-title {
+    color: #1c1c1e !important;
+  }
+
+  a {
+    color: #007aff !important;
+  }
+
+  a:hover {
+    color: #0056b3 !important;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar-track {
+    background: #f5f5f7 !important;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c7c7cc !important;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* Code blocks */
+  pre, code, p>code {
+    background-color: #ffffff !important;
+  }
+
+  th {
+    background-color: #ffffff !important;
+  }
+
+  td, th {
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Blockquotes */
+  blockquote {
+    background-color: #ffffff !important;
+    border-left-color: #007aff !important;
+  }
+
+  del {
+    color: #8e8e93 !important;
+  }
+
+  ::selection {
+    background-color: #007aff !important;
+    color: #ffffff !important;
+  }
+
+  /* Header */
+  .l-header {
+    background-color: rgba(255, 255, 255, 0.72) !important;
+    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Footer */
+  .l-footer {
+    border-top-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Mobile menu toggle */
+  .mobile-menu-toggle span {
+    background: #333 !important;
+  }
+
+  /* Search toggle */
+  .search-toggle {
+    color: #6e6e73 !important;
+  }
+
+  .search-toggle:hover {
+    color: #1c1c1e !important;
+  }
+
+  /* Social links */
+  .c-links a {
+    background-color: #ffffff !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+    color: #6e6e73 !important;
+  }
+
+  .c-links a:hover {
+    background-color: rgba(0, 122, 255, 0.1) !important;
+    border-color: #007aff !important;
+    color: #007aff !important;
+  }
+
+  /* Article list */
+  .c-article.p-list-article {
+    border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .c-article__meta,
+  .c-article__summary {
+    color: #6e6e73 !important;
+  }
+
+  /* Tags */
+  .c-tag {
+    background-color: #ffffff !important;
+    color: #6e6e73 !important;
+  }
+
+  .c-tag:hover {
+    background-color: #e5e5ea !important;
+    color: #1c1c1e !important;
+  }
+
+  /* Pagination */
+  .c-pagination a:hover {
+    background-color: #ffffff !important;
+    color: #1c1c1e !important;
+  }
+
+  /* Copyright */
+  .p-copyright {
+    color: #8e8e93 !important;
+  }
+
+  /* Menu */
+  .p-menu__listitem a {
+    color: #6e6e73 !important;
+  }
+
+  .p-menu__listitem.active a,
+  .p-menu__listitem a:hover {
+    color: #1c1c1e !important;
+  }
+
+  /* Pagination count */
+  .p-pagination__count {
+    color: #8e8e93 !important;
+  }
+
+  /* Table of Contents */
+  .tableOfContentContainer {
+    background: #ffffff !important;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .tableOfContentContainer {
+      background: transparent !important;
+    }
+  }
+
+  .tableOfContentContainer ul li a {
+    color: #6e6e73 !important;
+  }
+
+  .tableOfContentContainer ul li a:hover {
+    color: #007aff !important;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .tableOfContentContainer ul li a {
+      border-left-color: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .tableOfContentContainer ul li a:hover {
+      border-left-color: #007aff !important;
+    }
+  }
+
+  /* Screen reader */
+  .p-screen-reader-text:active,
+  .p-screen-reader-text:focus,
+  .p-screen-reader-text:hover {
+    background-color: #000000 !important;
+    color: #007aff !important;
+  }
+
+  /* Related posts navigation */
+  .related-next,
+  .related-prev {
+    background: #dddddd !important;
+  }
+
+  .related-next:after,
+  .related-prev:after {
+    border-color: #333333 !important;
+  }
+
+  /* Author */
+  .p-author:before {
+    color: #999999 !important;
+  }
+
+  /* Related posts */
+  .p-related__item a {
+    background-color: #007aff !important;
+    color: #ffffff !important;
+  }
+
+  .p-related__item a:before {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .p-related__item a:hover:before {
+    background: rgba(0, 0, 0, 0.1) !important;
+  }
+}

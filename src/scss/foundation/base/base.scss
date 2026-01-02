@@ -1,5 +1,6 @@
-@use "../variable/color.scss" as color;
 @use "../variable/font-family.scss" as fontFamily;
+// Theme variables with CSS custom properties for light/dark mode support
+@use "../variable/_theme.scss" as theme;
 
 * {
   box-sizing: border-box;
@@ -12,11 +13,11 @@ html {
 }
 
 body {
-  color: color.$color-text;
+  color: var(--color-text);
   font-size: 1rem;
   font-family: fontFamily.$font-primary;
-  line-height: 1.65; // Increased leading for readability
-  background-color: color.$color-bg;
+  line-height: 1.65;
+  background-color: var(--color-bg);
   letter-spacing: -0.01em;
 }
 
@@ -27,16 +28,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: color.$color-bg;
+  background: var(--color-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: color.$color-bg-tertiary;
+  background: var(--color-scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--color-scrollbar-thumb-hover);
 }
 
 h1,
@@ -48,64 +49,35 @@ h6 {
   font-weight: 600;
   font-family: fontFamily.$font-primary;
   line-height: 1.25;
-  letter-spacing: -0.02em; // Tight tracking for headlines
-  color: color.$color-text;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
 }
 
-h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1.75rem;
-}
-
-h5 {
-  font-size: 1.5rem;
-}
-
-h6 {
-  font-size: 1.25rem;
-}
+h1 { font-size: 2.8rem; font-weight: 700; }
+h2 { font-size: 2.2rem; font-weight: 600; }
+h3 { font-size: 2rem; font-weight: 600; }
+h4 { font-size: 1.75rem; }
+h5 { font-size: 1.5rem; }
+h6 { font-size: 1.25rem; }
 
 p {
   font-size: 1.6rem;
-  line-height: 1.7; // Relaxed leading for body text
+  line-height: 1.7;
   margin-bottom: 1.5em;
 }
 
 a {
-  color: color.$color-link;
+  color: var(--color-accent);
   text-decoration: none;
   transition: color 0.2s ease;
 
   &:hover {
-    color: color.$color-link-hover;
+    color: var(--color-accent-hover);
   }
 }
 
-ul {
-  & li {
-    list-style: disc;
-  }
-}
-
-ol {
-  & li {
-    list-style: decimal;
-  }
-}
+ul li { list-style: disc; }
+ol li { list-style: decimal; }
 
 li {
   font-size: 1.6rem;
@@ -126,8 +98,8 @@ dd {
 pre {
   display: block;
   padding: 16px 20px;
-  border-radius: 12px; // Squircle radius
-  background-color: color.$color-bg-secondary;
+  border-radius: 12px;
+  background-color: var(--color-bg-secondary);
   font-size: 1.3rem;
   word-wrap: break-word;
   overflow: auto;
@@ -147,14 +119,12 @@ table {
   border-spacing: 0;
   font-size: 1.6rem;
   margin: 2em auto;
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 p > code {
   padding: 4px 8px;
-  color: color.$color-text;
-  background-color: color.$color-bg-secondary;
+  color: var(--color-text);
+  background-color: var(--color-bg-secondary);
   border-radius: 6px;
   font-size: 1.4rem;
 }
@@ -162,23 +132,23 @@ p > code {
 th,
 td {
   padding: 12px 16px;
-  border: 1px solid color.$color-border;
+  border: 1px solid var(--color-border);
 }
 
 th {
-  background-color: color.$color-bg-secondary;
+  background-color: var(--color-bg-secondary);
   font-weight: 600;
 }
 
 del {
-  color: color.$color-text-tertiary;
+  color: var(--color-del);
 }
 
 blockquote {
   margin: 24px 0;
   padding: 16px 20px;
-  border-left: 3px solid color.$color-accent;
-  background-color: color.$color-bg-secondary;
+  border-left: 3px solid var(--color-accent);
+  background-color: var(--color-bg-secondary);
   border-radius: 0 8px 8px 0;
 
   & * {
@@ -209,52 +179,40 @@ $warning-color: #f79000;
 
 blockquote.alert-note {
   border-left-color: $note-color;
-  p.alert-heading {
-    color: $note-color;
-  }
+  p.alert-heading { color: $note-color; }
 }
 
 blockquote.alert-tip {
   border-left-color: $tip-color;
-  p.alert-heading {
-    color: $tip-color;
-  }
+  p.alert-heading { color: $tip-color; }
 }
 
 blockquote.alert-important {
   border-left-color: $important-color;
-  p.alert-heading {
-    color: $important-color;
-  }
+  p.alert-heading { color: $important-color; }
 }
 
 blockquote.alert-warning {
   border-left-color: $warning-color;
-  p.alert-heading {
-    color: $warning-color;
-  }
+  p.alert-heading { color: $warning-color; }
 }
 
 blockquote.alert-caution {
   border-left-color: $caution-color;
-  p.alert-heading {
-    color: $caution-color;
-  }
+  p.alert-heading { color: $caution-color; }
 }
 
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 12px; // Squircle
+  border-radius: 12px;
 }
 
-// Interaction physics - scale on active
 body {
   -webkit-tap-highlight-color: transparent;
 }
 
-// Selection color
 ::selection {
-  background-color: color.$color-accent;
-  color: white;
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
 }
