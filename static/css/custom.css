@@ -63,11 +63,12 @@
 
   .l-nav-wrapper {
     position: relative;
-    padding-right: 50px;
+    width: 100%;
+    padding-top: 50px;
   }
 
   #search {
-    margin-top: 50px;
+    margin: 10px auto;
   }
 }
 
