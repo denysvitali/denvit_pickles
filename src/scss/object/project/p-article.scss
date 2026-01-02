@@ -12,6 +12,10 @@
     @include breakpoint.mq-up(sm) {
       margin: 40px 0 60px;
     }
+    // Anchor scroll offset - prevents content from hiding behind fixed header
+    h1, h2, h3, h4, h5, h6 {
+      scroll-margin-top: 72px;
+    }
     img[data-action^='zoom'] {
       &:hover {
         cursor: zoom-in;
