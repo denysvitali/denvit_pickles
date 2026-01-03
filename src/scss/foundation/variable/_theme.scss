@@ -50,6 +50,10 @@
 
   // Screen reader
   --color-screen-reader-bg: #f1f1f1;
+
+  // Border and divider
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-divider: rgba(255, 255, 255, 0.08);
 }
 
 // Light mode
@@ -102,6 +106,10 @@
 
     // Screen reader
     --color-screen-reader-bg: #000000;
+
+    // Border and divider
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-divider: rgba(0, 0, 0, 0.08);
   }
 }
 
