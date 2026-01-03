@@ -1,4 +1,5 @@
 @use "../../foundation/variable/breakpoint.scss" as breakpoint;
+@use '../../foundation/variable/_theme.scss' as theme;
 
 .p-author {
   display: block;
@@ -18,7 +19,7 @@
     margin: auto;
     text-align: center;
     font-size: 1.4rem;
-    color: #999;
+    color: var(--color-text-tertiary);
     @include breakpoint.mq-up(sm) {
       top: -50px;
     }

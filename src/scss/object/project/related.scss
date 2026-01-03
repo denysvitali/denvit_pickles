@@ -1,3 +1,5 @@
+@use '../../foundation/variable/_theme.scss' as theme;
+
 .p-related {
   margin-bottom: 100px;
   &__list {
@@ -14,8 +16,8 @@
       height: 100%;
       padding: 8px;
       background-size: cover;
-      background-color: #92c6f2;
-      color: #fafafa;
+      background-color: var(--color-related-bg);
+      color: var(--color-related-text);
       font-weight: normal;
       font-family: 'Open Sans', sans-serif;
       &::before {

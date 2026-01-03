@@ -1,4 +1,5 @@
 @use '../variable/breakpoint.scss' as breakpoint;
+@use '../variable/_theme.scss' as theme;
 
 .swiper-container {
   height: 150px;
@@ -19,7 +20,7 @@
   height: 28px;
   border: none;
   border-radius: 50%;
-  background: #555;
+  background: var(--color-pagination-bg);
   &:hover {
     cursor: pointer;
   }
@@ -34,7 +35,7 @@
     margin: auto;
     width: 5px;
     height: 5px;
-    border: solid #fafafa;
+    border: solid var(--color-pagination-arrow);
   }
   @include breakpoint.mq-down(md) {
     display: none !important;
