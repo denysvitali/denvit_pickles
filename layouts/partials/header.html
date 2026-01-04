@@ -143,7 +143,6 @@
       // Active heading highlighting via scroll spy
       var tocContainer = document.getElementById('tableOfContentContainer');
       if (!tocContainer) {
-        console.log('Scroll spy: No tocContainer found');
         return;
       }
 
@@ -151,7 +150,6 @@
       var headings = document.querySelectorAll(headingSelectors);
       var tocLinks = tocContainer.querySelectorAll('a');
 
-      console.log('Scroll spy: headings found:', headings.length, 'tocLinks found:', tocLinks.length);
 
       if (headings.length === 0 || tocLinks.length === 0) return;
 
@@ -167,7 +165,6 @@
         }
       });
 
-      console.log('Scroll spy: headingIdToLink keys:', Object.keys(headingIdToLink));
 
       function updateActiveHeading() {
         var scrollY = window.scrollY;
@@ -209,7 +206,6 @@
           link.classList.remove('active');
         });
         if (activeId && headingIdToLink[activeId]) {
-          console.log('Scroll spy: setting active:', activeId);
           headingIdToLink[activeId].classList.add('active');
         }
       }
