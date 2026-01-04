@@ -76,10 +76,12 @@
           toggle.setAttribute('aria-expanded', 'false');
           overlay.hidden = true;
           overlay.classList.remove('is-open');
+          document.body.classList.remove('has-open-menu');
         } else {
           // Open menu
           toggle.setAttribute('aria-expanded', 'true');
           overlay.hidden = false;
+          document.body.classList.add('has-open-menu');
           // Small delay to allow display:flex to apply before opacity transition
           requestAnimationFrame(function() {
             overlay.classList.add('is-open');
@@ -93,6 +95,7 @@
       closeBtn.addEventListener('click', function() {
         toggle.setAttribute('aria-expanded', 'false');
         overlay.classList.remove('is-open');
+        document.body.classList.remove('has-open-menu');
         setTimeout(function() {
           overlay.hidden = true;
         }, 300);
@@ -107,6 +110,7 @@
           if (toggle && overlay) {
             toggle.setAttribute('aria-expanded', 'false');
             overlay.classList.remove('is-open');
+            document.body.classList.remove('has-open-menu');
             setTimeout(function() {
               overlay.hidden = true;
             }, 300);
