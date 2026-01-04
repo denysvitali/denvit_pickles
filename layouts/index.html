@@ -6,5 +6,7 @@
   {{ .Render "li" }}
 {{ end }}
 
-{{ partial "pagination.html" .Paginator }} {{ partial "siteinfo.html" . }}
+{{ partial "pagination.html" .Paginator }}
+</main> {{/* Close main for list pages to keep author info in its own column */}}
+{{ partial "siteinfo.html" . }}
 {{ partial "footer.html" . }}

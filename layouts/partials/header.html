@@ -131,4 +131,111 @@
     }
   });
   </script>
-  <main id="main" class="l-main">
+  <main id="main" class="l-main{{ if not .IsPage }} l-main--list{{ end }}">
+  {{ if .IsPage }}
+  <aside class="tableOfContentContainer" id="tableOfContentContainer">
+    <h3>Table of contents</h3>
+    {{ .TableOfContents }}
+  </aside>
+  <script>
+  (function() {
+    function initScrollSpy() {
+      // Active heading highlighting via scroll spy
+      var tocContainer = document.getElementById('tableOfContentContainer');
+      if (!tocContainer) {
+        console.log('Scroll spy: No tocContainer found');
+        return;
+      }
+
+      var headingSelectors = '#js-article h1, #js-article h2, #js-article h3, #js-article h4';
+      var headings = document.querySelectorAll(headingSelectors);
+      var tocLinks = tocContainer.querySelectorAll('a');
+
+      console.log('Scroll spy: headings found:', headings.length, 'tocLinks found:', tocLinks.length);
+
+      if (headings.length === 0 || tocLinks.length === 0) return;
+
+      // Create a map of heading IDs to links
+      var headingIdToLink = {};
+      headings.forEach(function(heading) {
+        var id = heading.id;
+        if (id) {
+          var link = tocContainer.querySelector('a[href="#' + id + '"]');
+          if (link) {
+            headingIdToLink[id] = link;
+          }
+        }
+      });
+
+      console.log('Scroll spy: headingIdToLink keys:', Object.keys(headingIdToLink));
+
+      function updateActiveHeading() {
+        var scrollY = window.scrollY;
+        var scrollMargin = 72;
+
+        var activeId = null;
+        var maxOffset = -Infinity;
+
+        headings.forEach(function(heading) {
+          var id = heading.id;
+          if (!id || !headingIdToLink[id]) return;
+
+          // Get heading's offset from document top, minus scroll margin
+          var headingOffset = heading.offsetTop - scrollMargin;
+
+          // Heading is "passed" if its offset is <= current scroll position
+          if (headingOffset <= scrollY && headingOffset > maxOffset) {
+            maxOffset = headingOffset;
+            activeId = id;
+          }
+        });
+
+        // Use the first heading's offset as the threshold
+        // Don't highlight any heading if we haven't scrolled past the first one
+        if (headings.length > 0) {
+          var firstHeadingOffset = headings[0].offsetTop - scrollMargin;
+          if (scrollY <= firstHeadingOffset) {
+            activeId = null;
+          }
+        }
+
+        // Fallback to the last heading if scrolled past all
+        if (!activeId && headings.length > 0 && scrollY > firstHeadingOffset) {
+          activeId = headings[headings.length - 1].id;
+        }
+
+        // Update active state
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+        });
+        if (activeId && headingIdToLink[activeId]) {
+          console.log('Scroll spy: setting active:', activeId);
+          headingIdToLink[activeId].classList.add('active');
+        }
+      }
+
+      // Run on scroll with throttling
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateActiveHeading();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Run on initial load
+      updateActiveHeading();
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollSpy);
+    } else {
+      initScrollSpy();
+    }
+  })();
+  </script>
+  {{ end }}

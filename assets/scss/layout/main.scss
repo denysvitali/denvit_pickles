@@ -11,10 +11,19 @@
 
   @include breakpoint.mq-up(lg) {
     max-width: 1080px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 280px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     gap: 64px;
     align-items: start;
+  }
+}
+
+// Single-column layout for list pages (home, categories, tags)
+.l-main--list {
+  @include breakpoint.mq-up(lg) {
+    display: block;
+    max-width: 720px;
   }
 }
 

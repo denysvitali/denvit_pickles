@@ -10,11 +10,9 @@
           {{ partial "timestamp.html" . }}
           {{ end }}
           {{ if not (.Param "hideWordCount") }}
-          {{ if not (.Param "hideDate") }} | {{ end }}
           {{ partial "word_count.html" . }}
           {{ end }}
           {{ if not (.Param "hideReadingTime") }}
-          {{ if not (and (.Param "hideDate") (.Param "hideWordCount")) }} | {{ end }}
           {{ partial "reading_time.html" . }}
           {{ end }}
         </div>
@@ -22,9 +20,8 @@
       {{ range .Params.tags }}
       <a href="{{ absURL " tags"}}/{{ . | urlize }}" class="c-tag">{{ . }}</a>
       {{ end }}
-</div>
-{{ end }}
-</header>
+      {{ end }}
+    </header>
 {{ with .Params.thumbnail }}
 <img src="{{ . }}" alt="thumbnail" class="p-article__thumbnail">
 {{ end }}
@@ -36,7 +33,7 @@
   <div>
     <div class="c-last-update">
       Last Update:
-      <time datetime="{{ .Date.Format " 2006-01-02T15:04:05Z07:00" | safeHTML }}">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
         {{ .Date.Format "Jan 2, 2006" }}
       </time>
     </div>
@@ -77,8 +74,4 @@
 </footer>
 </article>
 </div>
-<aside class="tableOfContentContainer" id="tableOfContentContainer">
-  <h3>Table of contents</h3>
-  {{ .TableOfContents }}
-</aside>
 {{ partial "footer.html" . }}

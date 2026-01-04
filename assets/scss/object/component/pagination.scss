@@ -35,6 +35,10 @@
   &__newer,
   &__older {
     flex: 1;
+    
+    &:empty {
+      display: none;
+    }
   }
 
   &__newer {

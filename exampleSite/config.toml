@@ -1,4 +1,4 @@
-baseurl = "Your site URL"
+baseurl = "http://localhost:38424"
 languageCode = "en-us"
 Title = "Your site title"
 # Copyright notice. This is displayer in the footer.
