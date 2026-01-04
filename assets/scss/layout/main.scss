@@ -31,7 +31,7 @@
 // ToC sidebar layout for single post pages
 @include breakpoint.mq-up(xl) {
   .l-main:not(.l-main--list) {
-    grid-template-columns: 240px minmax(0, 680px) 1fr;
+    grid-template-columns: 200px minmax(0, 680px) 1fr;
     max-width: 1200px;
     gap: 48px;
     padding-left: 20px;
