@@ -166,7 +166,7 @@ code {
 
 /* Author section at bottom of article */
 .p-author {
-    max-width: 800px !important;
+    max-width: 680px !important;
     margin: 0 auto !important;
     padding: 64px 20px !important;
     width: 100% !important;
@@ -175,6 +175,6 @@ code {
 
 @media screen and (min-width: 1200px) {
     .p-author {
-        max-width: 800px !important;
+        max-width: 680px !important;
     }
 }
