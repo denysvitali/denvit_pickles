@@ -46,8 +46,12 @@
     gap: 4px;
   }
 
-  /* Hide search toggle on mobile - search is in hamburger menu */
+  /* Hide search toggle and search container on mobile - search is in hamburger menu */
   .search-toggle {
+    display: none !important;
+  }
+
+  .search-container {
     display: none !important;
   }
 
