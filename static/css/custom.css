@@ -166,15 +166,16 @@ code {
 
 /* Author section at bottom of article */
 .p-author {
-    max-width: 680px !important;
+    max-width: 800px !important;
     margin: 0 auto !important;
     padding: 64px 20px !important;
     width: 100% !important;
     box-sizing: border-box !important;
 }
 
+/* On single post pages, constrain author to match article width */
 @media screen and (min-width: 1200px) {
-    .p-author {
+    .l-main:not(.l-main--list) ~ .p-author {
         max-width: 680px !important;
     }
 }
