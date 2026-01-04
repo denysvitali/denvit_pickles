@@ -1,0 +1,31 @@
+@use '../foundation/variable/font-family.scss' as fontFamily;
+
+.l-footer {
+  padding: 48px 0 32px;
+  margin-top: 64px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.l-footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.p-copyright {
+  font-family: fontFamily.$font-primary;
+  font-size: 1.2rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  margin: 24px 0 0;
+  line-height: 1.5;
+
+  a {
+    color: var(--color-text-secondary);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}

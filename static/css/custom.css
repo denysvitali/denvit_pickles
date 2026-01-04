@@ -1,0 +1,113 @@
+/* Main container setup */
+.l-main,
+main {
+    display: block !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 64px 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* On large screens, allow for a sidebar layout */
+@media screen and (min-width: 1200px) {
+
+    .l-main,
+    main {
+        display: grid !important;
+        grid-template-columns: 1fr 300px !important;
+        max-width: 1160px !important;
+        gap: 60px !important;
+        align-items: start !important;
+    }
+}
+
+/* Fix article content overflow */
+.p-article,
+article {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    min-width: 0 !important;
+}
+
+/* Constrain images to container width */
+.p-article img,
+.p-article__thumbnail,
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 1.5rem auto !important;
+}
+
+/* Align header content with main content */
+.l-header-inner {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Adjust header constraint for wide layout */
+@media screen and (min-width: 1200px) {
+    .l-header-inner {
+        max-width: 1160px !important;
+    }
+}
+
+/* Align footer content with main content */
+.l-footer-inner {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* Adjust footer constraint for wide layout */
+@media screen and (min-width: 1200px) {
+    .l-footer-inner {
+        max-width: 1160px !important;
+    }
+}
+
+/* Ensure code blocks don't overflow */
+pre,
+code {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    white-space: pre-wrap;
+}
+
+/* Table of Contents adjustments */
+#tableOfContentContainer {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+    padding: 1rem;
+    box-sizing: border-box !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Mobile/Tablet: Inline, non-sticky to prevent overlap */
+@media screen and (max-width: 1199px) {
+    #tableOfContentContainer {
+        position: relative !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        float: none !important;
+    }
+}
+
+/* Desktop: Sticky sidebar */
+@media screen and (min-width: 1200px) {
+    #tableOfContentContainer {
+        position: sticky !important;
+        top: 100px !important;
+        width: 300px !important;
+        margin: 0 !important;
+    }
+}

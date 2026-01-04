@@ -1,42 +1,22 @@
 {
   "name": "hugo_theme_pickles",
-  "version": "2.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.1.0",
+  "description": "A modern Hugo theme",
   "scripts": {
-    "hugo": "hugo server -s exampleSite --baseUrl http://localhost --themesDir=../../ --theme=hugo_theme_pickles",
-    "dev": "gulp",
-    "prod": "gulp --env production",
-    "build": "gulp build --env production",
+    "start": "hugo server -s exampleSite --themesDir=../../ --theme=pickles",
+    "build": "hugo -s exampleSite --themesDir=../../ --theme=pickles",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mismith0227",
   "license": "MIT",
   "devDependencies": {
-    "gulp-sass": "^5.1.0",
-    "sass": "^1.36.0"
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "sass-embedded": "^1.83.1"
   },
   "dependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
-    "autoprefixer": "^10.4.2",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^5.0.1",
-    "cssnano": "^5.0.15",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.1",
-    "gulp-rename": "^2.0.0",
-    "minimist": "^1.2.0",
-    "postcss": "^8.4.5",
-    "standard": "^14.3.1",
-    "standard-loader": "^7.0.0",
-    "style-loader": "^2.0.0",
-    "svgpack": "^3.1.1",
     "swiper": "^7.4.1",
-    "webpack": "^5.58.1",
-    "webpack-stream": "^7.0.0",
     "zooming": "^2.1.1"
   }
 }

@@ -11,7 +11,8 @@ googleAnalytics = "Your Google Analytics tracking id"
 # so we don't have to manually update it.
 enableGitInfo = true
 
-paginate = 10
+[pagination]
+  pagerSize = 10
 
 [params]
   # Hide the date on posts
