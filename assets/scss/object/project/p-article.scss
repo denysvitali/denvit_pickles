@@ -129,8 +129,12 @@
         }
       }
 
-      ul li a {
-        font-size: 1.3rem;
+      ul {
+        list-style: none;
+
+        li a {
+          font-size: 1.3rem;
+        }
       }
     }
   }
