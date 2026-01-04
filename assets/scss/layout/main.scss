@@ -3,17 +3,15 @@
 
 .l-main {
   width: 100%;
-  max-width: 720px; // Apple-style optimal reading width
-  margin: 0 auto;
-  padding: 48px 24px; // Consistent padding
+  padding: 48px 24px;
   padding-left: max(24px, env(safe-area-inset-left));
   padding-right: max(24px, env(safe-area-inset-right));
+  box-sizing: border-box;
 
   @include breakpoint.mq-up(lg) {
     max-width: 1080px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
     gap: 64px;
     align-items: start;
   }
@@ -21,9 +19,23 @@
 
 // Single-column layout for list pages (home, categories, tags)
 .l-main--list {
+  max-width: 720px;
+  margin: 0 auto;
+
   @include breakpoint.mq-up(lg) {
     display: block;
     max-width: 720px;
+  }
+}
+
+// ToC sidebar layout for single post pages
+@include breakpoint.mq-up(xl) {
+  .l-main:not(.l-main--list) {
+    grid-template-columns: 240px minmax(0, 680px) 1fr;
+    max-width: 1200px;
+    gap: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

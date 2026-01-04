@@ -133,4 +133,29 @@
       }
     }
   }
+
+  // ToC link styling (shared between mobile and desktop)
+  a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: all 0.15s ease;
+    display: block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin: 0 -8px;
+    border-left: 2px solid transparent;
+
+    &:hover {
+      color: var(--color-accent);
+      background-color: var(--color-bg-tertiary);
+    }
+  }
+
+  // Active state for scroll spy
+  a.active {
+    color: var(--color-accent) !important;
+    font-weight: 600;
+    background-color: var(--color-bg-tertiary);
+    border-left-color: var(--color-accent);
+  }
 }

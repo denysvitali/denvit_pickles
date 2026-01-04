@@ -5,11 +5,23 @@
   display: block;
   position: relative;
   width: 100%;
+  max-width: 800px;
   margin: 20px auto 0;
+  box-sizing: border-box;
+  padding: 64px 20px;
+
   @include breakpoint.mq-up(sm) {
     display: flex;
     margin: 80px auto 0;
   }
+
+  // On single post pages, constrain to match article width (680px)
+  @include breakpoint.mq-up(xl) {
+    .l-main:not(.l-main--list) ~ & {
+      max-width: 680px;
+    }
+  }
+
   &::before {
     content: '* * *';
     position: absolute;
