@@ -6,4 +6,5 @@ config.toml
 npm-debug.log
 !/exampleSite/config.toml
 /static/css/style.css
+/static/css/*.css.map
 /static/js/bundle.js

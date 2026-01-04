@@ -50,10 +50,6 @@
   {{ range ($.Param "custom_css") -}}
     <link rel="stylesheet" href="{{ . | absURL }}">
   {{- end }}
-  <!-- Mobile navigation CSS -->
-  {{ if .Site.Params.enableMobileNav | default true }}
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/mobile-nav.css" />
-  {{ end }}
   {{- with ($.Param "favicon") }}
   <link rel='icon' type='image/x-icon' href="{{ . | absURL }}" />
   {{- end -}}
