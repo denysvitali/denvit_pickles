@@ -88,8 +88,12 @@
         padding-left: 0;
         list-style: none;
 
-        li a {
-          font-size: 1.3rem;
+        li {
+          list-style: none;
+
+          a {
+            font-size: 1.3rem;
+          }
         }
       }
     }
@@ -132,8 +136,12 @@
       ul {
         list-style: none;
 
-        li a {
-          font-size: 1.3rem;
+        li {
+          list-style: none;
+
+          a {
+            font-size: 1.3rem;
+          }
         }
       }
     }
