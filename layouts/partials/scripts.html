@@ -3,3 +3,4 @@
 {{ if .Site.Params.enableMobileNav | default true }}
 <script type="text/javascript" src="{{ .Site.BaseURL }}js/mobile-nav.js" defer></script>
 {{ end }}
+{{ partial "mermaid_support.html" . }}
