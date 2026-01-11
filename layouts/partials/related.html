@@ -7,10 +7,10 @@
       <ul class="swiper-wrapper">
         {{ range . }}
         <li class="p-related__item swiper-slide">
-          <a href="{{ .RelPermalink }}"
-            {{ with .Params.thumbnail }}
-              style="background-image: url({{ $.Site.BaseURL }}{{ . }});"
-            {{ end }}>
+            <a href="{{ .RelPermalink }}"
+             {{ with .Params.thumbnail }}
+              style="background-image: url({{ . }});"
+             {{ end }}>
             <span>{{ .Title }}</span>
           </a>
         </li>
