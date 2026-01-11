@@ -19,6 +19,9 @@ body {
   line-height: 1.65;
   background-color: var(--color-bg);
   letter-spacing: -0.01em;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 // Custom scrollbar - thin and subtle
