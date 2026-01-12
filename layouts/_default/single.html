@@ -18,7 +18,7 @@
         </div>
       </div>
       {{ range .Params.tags }}
-      <a href="{{ absURL " tags"}}/{{ . | urlize }}" class="c-tag">{{ . }}</a>
+      <a href="{{ absURL "tags" }}/{{ . | urlize }}" class="c-tag">{{ . }}</a>
       {{ end }}
       {{ end }}
     </header>
