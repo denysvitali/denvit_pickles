@@ -46,6 +46,7 @@ enableGitInfo = true
   strava = "Your Strava userid"
   threads = "Your Threads username"
   bluesky = "Your Bluesky username"
+  telegram = "Your Telegram username"
   # Disqus shortname
   disqus = ""
   author = "Your Name"

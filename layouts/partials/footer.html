@@ -14,6 +14,25 @@
       {{ .Site.Lastmod.Format "2006" }}
       {{ end }}
     </p>
+    {{ if or ($.Param "github") ($.Param "twitter") ($.Param "telegram") }}
+    <p class="p-social">
+      {{ with ($.Param "github") }}
+      <a href="https://github.com/{{ . }}" aria-label="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      {{ end }}
+      {{ with ($.Param "twitter") }}
+      <a href="https://x.com/{{ . }}" aria-label="X">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+      {{ end }}
+      {{ with ($.Param "telegram") }}
+      <a href="https://t.me/{{ . }}" aria-label="Telegram">
+        <i class="fa-brands fa-telegram"></i>
+      </a>
+      {{ end }}
+    </p>
+    {{ end }}
   </div>
 </footer>
 
