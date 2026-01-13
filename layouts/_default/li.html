@@ -7,6 +7,6 @@
     </p>
   </header>
   <div class="c-article__summary">
-    {{ .Summary | plainify | safeHTML }}
+    {{ with .Description }}{{ . | plainify | safeHTML }}{{ else }}{{ .Summary | plainify | safeHTML }}{{ end }}
   </div>
 </article>
